@@ -14,4 +14,10 @@ const Song = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('Song', Song);
+const Playlist = new mongoose.Schema({
+  name: String,
+  song: [Song]
+});
+
+module.exports = mongoose.model('Song' , Song);
+module.exports = mongoose.model('Playlist', Playlist);

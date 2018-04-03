@@ -13,7 +13,7 @@ const User = new mongoose.Schema({
     type: String, 
     required: true
   },
-  playlist: [Song]
+  playlist: [Playlist]
 });
 
 module.exports = mongoose.model('User', User);
