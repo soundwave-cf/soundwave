@@ -1,18 +1,25 @@
-// 'use strict';
-// var mongoose = require('mongoose');
 
-// var songSchema = new mongoose.Schema(
-//   {
-//     artist: String,
-//     title: String,
-//     album: String,
-//     url: String
-//   },
-//   {
-//     timestamps: true
-//   }
-// );
+'use strict';
 
-// var Song = mongoose.model('Song', songSchema);
+const mongoose = require('mongoose');
 
-// module.exports = Song;
+const Song = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.OjectId,
+    ref: 'User'
+  },
+  artist: String,
+  title: String,
+  album: String,
+  url: String,
+  timestamps: true
+});
+
+const Playlist = new mongoose.Schema({
+  name: String,
+  song: [Song]
+});
+
+module.exports = mongoose.model('Song' , Song);
+module.exports = mongoose.model('Playlist', Playlist);
+
