@@ -1,10 +1,10 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const Song = require('/song.js');
+// const Song = require('/song.js');
 
 const User = new mongoose.Schema({
-  name: {
+  username: {
     type: String, 
     unique: true, 
     required: true
@@ -13,7 +13,7 @@ const User = new mongoose.Schema({
     type: String, 
     required: true
   },
-  playlist: [Playlist]
+  // playlist: [Playlist]
 });
 
 module.exports = mongoose.model('User', User);

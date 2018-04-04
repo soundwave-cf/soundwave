@@ -1,15 +1,17 @@
 'use strict';
 const express = require('express');
 const fs = require('fs');
-
+const createuser = require('./lib/createuser');
+const bodyParser = require('body-parser');
 
 let app = express();
+app.use(bodyParser.json());
 
 let PORT = process.env.PORT || 3000;
 
 app.use('/public', express.static(__dirname + '/public'));
 
-
+app.use('/signup',createuser);
 
 app.get('/', function (req, res) {
 
