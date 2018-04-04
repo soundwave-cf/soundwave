@@ -5,6 +5,7 @@ const fs = require('fs');
 
 let app = express();
 
+let PORT = process.env.PORT || 3000;
 
 app.use('/public', express.static(__dirname + '/public'));
 
@@ -33,7 +34,7 @@ app.get('/music', function (req, res) {
   });
 });
 
-app.listen(3000, function () {
+app.listen(PORT, function () {
   console.log('App listening on port 3000!');
 });
 
