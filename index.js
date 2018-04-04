@@ -11,7 +11,7 @@ let PORT = process.env.PORT || 3000;
 
 app.use('/public', express.static(__dirname + '/public'));
 
-app.use('/signup',createuser);
+app.use('/signup', createuser);
 
 app.get('/', function (req, res) {
 
