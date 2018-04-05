@@ -28,7 +28,7 @@ User.pre('save', function(next) {
     bcrypt.hash(this.password, 5)
     .then(hash => {
         this.password = hash;
-        next()
+        next();
     }).catch(err => console.log('error', err));
   }else {
     console.log('old user', this);
