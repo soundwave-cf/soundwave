@@ -9,5 +9,16 @@
 <!-- target="_blank" -->
 <body>
     <a href="https://soundwavecf.herokuapp.com/music?id=Hook.mp3"> <button class="btn btn-success"> Play </button>	</a> 
+    <h1 class="signup">Sign Up</h1>
+    <h1 class="signin">Sign In</h1>
+
+    <form class="input" method="post" action="/signup">
+            <label>username</label><br>
+            <input type="text" name="username" placeholder="username" required>
+            <input type="text" name="password" placeholder="password" required>
+            <input id="button" type="submit" value="Sign Up">
+        </form>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../script.js"></script>
 </html>
