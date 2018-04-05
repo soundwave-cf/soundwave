@@ -26,10 +26,10 @@ User.pre('save', function(next) {
   if(this.isNew) {
     console.log('New user', this);
     bcrypt.hash(this.password, 5)
-    .then(hash => {
+      .then(hash => {
         this.password = hash;
-        next()
-    }).catch(err => console.log('error', err));
+        next();
+      }).catch(err => console.log('error', err));
   }else {
     console.log('old user', this);
     next();
