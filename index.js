@@ -1,9 +1,10 @@
 'use strict';
+
 const express = require('express');
 const fs = require('fs');
 const createuser = require('./lib/createuser');
 const bodyParser = require('body-parser');
-
+const userAuth = require('./lib/userAuth.js');
 
 let app = express();
 app.use(bodyParser.json());
@@ -12,13 +13,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 let PORT = process.env.PORT || 3000;
 
 app.use('/', express.static(__dirname + '/public'));
-
 app.use('/signup', createuser);
+app.use('/signin', userAuth.router);
 
 app.get('/', function (req, res) {
-
   return res.redirect('/home.html');
-
 });
 
 app.get('/music', function (req, res) {

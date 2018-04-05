@@ -18,18 +18,18 @@ const User = new mongoose.Schema({
 });
 
 //USE LATER.
-// User.methods.comparePass = function(password) {
-//   return bcrypt.compare(password, this.password);
-// };
+User.methods.comparePass = function(password) {
+  return bcrypt.compare(password, this.password);
+};
 
 User.pre('save', function(next) {
   if(this.isNew) {
     console.log('New user', this);
     bcrypt.hash(this.password, 5)
-    .then(hash => {
+      .then(hash => {
         this.password = hash;
         next();
-    }).catch(err => console.log('error', err));
+      }).catch(err => console.log('error', err));
   }else {
     console.log('old user', this);
     next();
