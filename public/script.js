@@ -10,19 +10,19 @@ homeView.hideForm = function() {
 
 $('.signup').on('click', function(){
   $('h1').hide();
-  $('form').show();
+  $('.input').show();
 });
 
 $('.signin').on('click', function(){
   $('h1').hide();
-  $('form').attr('method', 'get');
-  $('#button').prop('value', 'sign in');
-  $('form').show();
+  // $('.input').hide();
+  $('.signinform').show();
 });
 
-$('form').on('submit', function(e){
+$('.signinform').on('submit', function(e){
   // TODO: determine if signing in
   // if($('')
+ 
   e.preventDefault();
   let username = $('.username').val();
   let password = $('.password').val();
