@@ -18,9 +18,9 @@ const User = new mongoose.Schema({
 });
 
 //USE LATER.
-// User.methods.comparePass = function(password) {
-//   return bcrypt.compare(password, this.password);
-// };
+User.methods.comparePass = function(password) {
+  return bcrypt.compare(password, this.password);
+};
 
 User.pre('save', function(next) {
   if(this.isNew) {
