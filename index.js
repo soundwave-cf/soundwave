@@ -2,9 +2,9 @@
 
 const express = require('express');
 const fs = require('fs');
-const createuser = require('./lib/createuser');
+const createuser = require('./routes/signup-route');
 const bodyParser = require('body-parser');
-const userAuth = require('./lib/userAuth.js');
+const userAuth = require('./routes/signin-route');
 
 let app = express();
 app.use(bodyParser.json());
@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 let PORT = process.env.PORT || 3000;
 
 app.use('/', express.static(__dirname + '/public'));
+
 app.use('/signup', createuser);
 app.use('/signin', userAuth.router);
 
