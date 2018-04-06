@@ -1,25 +1,26 @@
 
-// 'use strict';
+'use strict';
+const User = require('./user.js');
+const mongoose = require('mongoose');
 
-// const mongoose = require('mongoose');
+const song = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  artist: String,
+  title: String,
+  album: String,
+  url: String,
+//   timestamp: true
+});
 
-// const Song = new mongoose.Schema({
-//   userId: {
-//     type: mongoose.Schema.Types.OjectId,
-//     ref: 'User'
-//   },
-//   artist: String,
-//   title: String,
-//   album: String,
-//   url: String,
-//   timestamps: true
-// });
+const playlist = new mongoose.Schema({
+  name: String,
+  song: [song]
+});
 
-// const Playlist = new mongoose.Schema({
-//   name: String,
-//   song: [Song]
-// });
-
-// module.exports = mongoose.model('Song' , Song);
-// module.exports = mongoose.model('Playlist', Playlist);
+let Song = mongoose.model('Song' , song);
+let Playlist = mongoose.model('Playlist', playlist);
+module.exports = {Song, Playlist};
 

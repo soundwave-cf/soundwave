@@ -2,7 +2,8 @@
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-// const Song = require('/song.js');
+const Song = require('./song.js').Song;
+const Playlist = require('./song.js').Playlist;
 
 const User = new mongoose.Schema({
   username: {
