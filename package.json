@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "directories": {
+    "start": "node index.js",
     "lib": "lib",
     "test": "test"
   },
