@@ -24,19 +24,19 @@ router.get('/signin', (req, res) => {
           }
           User.findOne({
             username: username
+          }).then((results) => {
+            Song.findOne({
+              userId: User._id
+            })
+              .then((results) => {
+                console.log('findone');
+                console.log(results);
+                delete results.password;
+                res.send(results);
+              });
           });
-          Song.findOne({
-            artist: 'Aaliyah'
-          })
-            .then((results) => {
-              console.log('findone');
-              console.log(results);
-              delete results.password;
-              res.send(results);
-            });
-            
-            
-    
+
+
         }).catch((err) => {
           res.status(401);
           console.log(err);
