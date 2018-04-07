@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-
+const Song = require('../models/song').Song;
 const User = require('../models/user.js');
 const getCred = require('../lib/userAuth').getCred;
 
@@ -24,12 +24,18 @@ router.get('/signin', (req, res) => {
           }
           User.findOne({
             username: username
+          });
+          Song.findOne({
+            artist: 'Aaliyah'
           })
             .then((results) => {
               console.log('findone');
+              console.log(results);
               delete results.password;
               res.send(results);
             });
+            
+            
     
         }).catch((err) => {
           res.status(401);

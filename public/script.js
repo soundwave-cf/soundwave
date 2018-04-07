@@ -2,6 +2,16 @@
 
 
 let homeView = {};
+let songData = {};
+let songDataConstructor = function(data){
+  console.log(data.artist);
+  songData.artist = data.artist,
+  songData.album = data.album,
+  songData.title = data.title,
+  songData.url = data.url;
+};
+
+
 
 homeView.hideForm = function () {
   console.log('hidddden');
@@ -43,7 +53,12 @@ $('.signinform').on('submit', function (e) {
       console.log('start of hiding');
       homeView.hideAll();
       console.log('Data: ', data);
-      
+      songDataConstructor(data);
+      console.log(songData);
+      $('.artist').html(songData.artist);
+      $('.album').html(songData.album);
+      $('.song').html(songData.title);
+      $('a').attr('href', songData.url);
     }
   });
 });
