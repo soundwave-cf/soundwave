@@ -5,6 +5,7 @@ const fs = require('fs');
 const createuser = require('./routes/signup-route');
 const bodyParser = require('body-parser');
 const userAuth = require('./routes/signin-route');
+const seedDb = require('./lib/seedDb.js');
 
 let app = express();
 app.use(bodyParser.json());
@@ -13,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 let PORT = process.env.PORT || 3000;
 
 app.use('/', express.static(__dirname + '/public'));
-
 app.use('/signup', createuser);
 app.use('/signin', userAuth.router);
 
@@ -37,6 +37,8 @@ app.get('/music', function (req, res) {
 
   });
 });
+
+
 
 app.listen(PORT, function () {
   console.log('App listening on port 3000!');

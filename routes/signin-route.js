@@ -5,8 +5,10 @@ const router = express.Router();
 const Song = require('../models/song').Song;
 const User = require('../models/user.js');
 const getCred = require('../lib/userAuth').getCred;
+require('dotenv').config();
 
-
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
 
 router.get('/signin', (req, res) => {
   let [username, password] = getCred(req, res);
@@ -24,8 +26,10 @@ router.get('/signin', (req, res) => {
           User.findOne({
             username: username
           }).then((results) => {
+            console.log('results: ', results._id)
+            // console.log('id: ', User._id )
             Song.findOne({
-              userId: User._id
+              userId: results._id
             })
               .then((results) => {
                 console.log('findOne results= ', results);
