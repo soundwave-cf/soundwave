@@ -19,12 +19,28 @@ function render() {
 };
 
 
-let songDataConstructor = function(data){
+
+let markup = `
+<h4 class="artist">{{artist}}</h4>
+    <h4 class="album">{{album}}</h4>
+    <h4 class="song">{{title}}</h4>
+    <a href="{{url}}"> <button class="btn btn-success"> Play </button>	</a>
+`;
+
+const template = Handlebars.compile(markup);
+
+function render() {
+
+  $('#list-slot').append((template(songData)));
+
+};
+
+let songDataConstructor = function (data) {
   console.log(data.artist);
   songData.artist = data.artist,
-  songData.album = data.album,
-  songData.title = data.title,
-  songData.url = data.url;
+    songData.album = data.album,
+    songData.title = data.title,
+    songData.url = data.url;
 };
 
 
