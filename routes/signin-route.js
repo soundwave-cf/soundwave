@@ -17,8 +17,7 @@ router.get('/signin', (req, res) => {
       return user.comparePass(password)
         .then(results => {
 
-
-          console.log('RESULTS! ', results);
+          console.log('Password COMPARE results= ', results);
           if (!results) {
             return res.status(401);
           }
@@ -29,8 +28,7 @@ router.get('/signin', (req, res) => {
               userId: User._id
             })
               .then((results) => {
-                console.log('findone');
-                console.log(results);
+                console.log('findOne results= ', results);
                 delete results.password;
                 res.send(results);
               });

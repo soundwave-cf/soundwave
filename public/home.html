@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Document</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Black+Ops+One|Cabin+Sketch|Gaegu|Kirang+Haerang|Monoton|Montserrat+Alternates|Poiret+One|Unica+One|VT323"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 
 <body>
-    <div id="list-view" >
-       <div id="list-slot"></div>
+    <div id="navbar">
+    <p class="login">Login</p>
+    <p class="signup">Sign Up</p>
    </div>
-  
-    <h1 class="signup">Sign Up</h1>
-    <h1 class="signin">Sign In</h1>
+    <form class="signupForm" method="post" action="/signup">
+        <label>Sign Up</label>
+        <br>
+        <input type="text" name="username" placeholder="username" required>
+        <input type="text" name="password" placeholder="password" required>
+        <input id="button" type="submit" value="Sign Up">
+    </form>
+    <form class="loginForm">
+        <label>Login</label>
+        <br>
+        <input type="text" name="username" class="username" placeholder="username" required>
+        <input type="text" name="password" class="password" placeholder="password" required>
+        <input id="button" type="submit" value="Login">
+    </form>
+    
+    <h1>soundwave</h1>
+    
+    <!-- handlebar placeholder -->
+    <div id="list-view">
+        <div id="list-slot"></div>
+    </div>
 
-    <form class="input" method="post" action="/signup">
-            <label>username</label><br>
-            <input type="text" name="username" placeholder="username" required>
-            <input type="text" name="password" placeholder="password" required>
-            <input id="button" type="submit" value="Sign Up">
-        </form>
-        <form class="signinform">
-            <label>username</label><br>
-            <input type="text" name="username" class="username" placeholder="username" required>
-            <input type="text" name="password" class="password" placeholder="password" required>
-            <input id="button" type="submit" value="Sign In">
-        </form>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

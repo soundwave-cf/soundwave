@@ -3,28 +3,14 @@
 
 let homeView = {};
 let songData = {};
-let markup = `
-<h4 class="artist">{{artist}}</h4>
-   <h4 class="album">{{album}}</h4>
-   <h4 class="song">{{title}}</h4>
-   <a target="_blank" href="{{url}}"> <button class="btn btn-success" > Play </button></a>
-`;
-
-const template = Handlebars.compile(markup);
-
-function render() {
-
- $('#list-slot').append((template(songData)));
-
-};
-
-
 
 let markup = `
-<h4 class="artist">{{artist}}</h4>
-    <h4 class="album">{{album}}</h4>
-    <h4 class="song">{{title}}</h4>
+<ul class="songList">
+    <li class="artist">{{artist}}</li>
+    <li class="album">{{album}}</li>
+    <li class="song">{{title}}</li>
     <a href="{{url}}"> <button class="btn btn-success"> Play </button>	</a>
+</ul>
 `;
 
 const template = Handlebars.compile(markup);
@@ -38,12 +24,10 @@ function render() {
 let songDataConstructor = function (data) {
   console.log(data.artist);
   songData.artist = data.artist,
-    songData.album = data.album,
-    songData.title = data.title,
-    songData.url = data.url;
+  songData.album = data.album,
+  songData.title = data.title,
+  songData.url = data.url;
 };
-
-
 
 homeView.hideForm = function () {
   console.log('hidddden');
@@ -55,20 +39,18 @@ homeView.hideAll = function () {
   $('form').hide();
 };
 
-
 $('.signup').on('click', function () {
   $('h1').hide();
-  $('.input').show();
+  $('.signupForm').show();
 });
 
-$('.signin').on('click', function () {
+$('.login').on('click', function () {
   $('h1').hide();
-  // $('.input').hide();
-  $('.signinform').show();
+  // $('.signupForm').hide();
+  $('.loginForm').show();
 });
 
-$('.signinform').on('submit', function (e) {
-
+$('.loginForm').on('submit', function (e) {
 
   e.preventDefault();
   let username1 = $('.username').val();
@@ -91,8 +73,6 @@ $('.signinform').on('submit', function (e) {
     }
   });
 });
-
-
 
 $(document).ready(function () {
   homeView.hideForm();

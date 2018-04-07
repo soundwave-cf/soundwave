@@ -1,0 +1,43 @@
+body {
+  background-color: #cbe4f0;
+  cursor:pointer;
+
+  /* font-family: 'Kirang Haerang', cursive;
+  font-family: 'Amatic SC', cursive;
+  font-family: 'Gaegu', cursive;
+  font-family: 'Poiret One', cursive;
+  font-family: 'Monoton', cursive;
+  font-family: 'Unica One', cursive;
+  font-family: 'VT323', monospace;
+  font-family: 'Cabin Sketch', cursive;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: 'Black Ops One', cursive; */
+}
+
+/* #backgroundImg {
+  background-image: url(images/music.jpg);
+} */
+
+#navbar {
+  display: inline-flex;
+  float: right;
+}
+
+p {
+  padding-left: .5em;
+}
+
+h1 {
+  font-family: 'Monoton', cursive;
+  text-align: left;
+  font-size: 1.5em;
+}
+
+form {
+  margin-top: 5em;
+  display: inline-block
+}
+
+li {
+  border: 1p solid black;
+}
