@@ -3,8 +3,9 @@ const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost/create-user');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
 
 router.get('/', (req, res) => {
   User.find()
@@ -20,7 +21,7 @@ router.post('/', (req, res) => {
     .then(item => {
       // res.send("User Created");
       return res.redirect('/home.html');
-
+      
     })
     .catch(err => {
       res.status(400).send("unable to save to database");
