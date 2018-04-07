@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
     .then(item => {
       // res.send("User Created");
       return res.redirect('/home.html');
-
+      
     })
     .catch(err => {
       res.status(400).send("unable to save to database");
