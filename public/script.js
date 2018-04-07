@@ -3,6 +3,21 @@
 
 let homeView = {};
 let songData = {};
+let markup = `
+<h4 class="artist">{{artist}}</h4>
+   <h4 class="album">{{album}}</h4>
+   <h4 class="song">{{title}}</h4>
+   <a target="_blank" href="{{url}}"> <button class="btn btn-success" > Play </button></a>
+`;
+
+const template = Handlebars.compile(markup);
+
+function render() {
+
+ $('#list-slot').append((template(songData)));
+
+};
+
 
 let songDataConstructor = function(data){
   console.log(data.artist);
@@ -56,10 +71,7 @@ $('.signinform').on('submit', function (e) {
       console.log('Data: ', data);
       songDataConstructor(data);
       console.log(songData);
-      $('.artist').html(songData.artist);
-      $('.album').html(songData.album);
-      $('.song').html(songData.title);
-      $('a').attr('href', songData.url);
+      render();
     }
   });
 });
