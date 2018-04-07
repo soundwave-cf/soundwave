@@ -5,10 +5,10 @@ let homeView = {};
 let songData = {};
 
 let markup = `
-<h4 class="artist">{{artist}}</h4>
+    <h4 class="artist">{{artist}}</h4>
     <h4 class="album">{{album}}</h4>
     <h4 class="song">{{title}}</h4>
-    <a href="{{url}}"> <button class="btn btn-success"> Play </button>	</a>
+    <a onclick="this.firstChild.play()"> <audio controls src="{{url}}"></audio></a>
 `;
 
 const template = Handlebars.compile(markup);
