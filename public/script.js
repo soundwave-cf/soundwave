@@ -3,6 +3,7 @@
 
 let homeView = {};
 let songData = {};
+
 let songDataConstructor = function(data){
   console.log(data.artist);
   songData.artist = data.artist,
