@@ -17,7 +17,6 @@ app.use('/', express.static(__dirname + '/public'));
 app.use('/signup', createuser);
 app.use('/signin', userAuth.router);
 
-
 app.get('/', function (req, res) {
   return res.redirect('/home.html');
 });

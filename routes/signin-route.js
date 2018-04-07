@@ -27,8 +27,10 @@ router.get('/signin', (req, res) => {
           User.findOne({
             username: username
           }).then((results) => {
+            console.log('results: ', results._id)
+            // console.log('id: ', User._id )
             Song.findOne({
-              userId: User._id
+              userId: results._id
             })
               .then((results) => {
                 console.log('findone');
