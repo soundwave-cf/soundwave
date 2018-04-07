@@ -18,7 +18,8 @@ router.post('/', (req, res) => {
   var myData = new User(req.body);
   myData.save()
     .then(item => {
-      res.send("item saved to database");
+      // res.send("User Created");
+      return res.redirect('/home.html');
 
     })
     .catch(err => {
