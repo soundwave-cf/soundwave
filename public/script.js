@@ -3,22 +3,6 @@
 
 let homeView = {};
 let songData = {};
-let markup = `
-<h4 class="artist">{{artist}}</h4>
-   <h4 class="album">{{album}}</h4>
-   <h4 class="song">{{title}}</h4>
-   <a target="_blank" href="{{url}}"> <button class="btn btn-success" > Play </button></a>
-`;
-
-const template = Handlebars.compile(markup);
-
-function render() {
-
- $('#list-slot').append((template(songData)));
-
-};
-
-
 
 let markup = `
 <h4 class="artist">{{artist}}</h4>
