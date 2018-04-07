@@ -5,18 +5,21 @@ let homeView = {};
 let songData = {};
 
 let markup = `
+  <section class="eachSong">
     <h4 class="artist">{{artist}}</h4>
     <h4 class="album">{{album}}</h4>
     <h4 class="song">{{title}}</h4>
     <a onclick="this.firstChild.play()"> <audio controls src="{{url}}"></audio></a>
+    <button id="removebtn"> - </button>
+  </section>
 `;
+
 
 const template = Handlebars.compile(markup);
 
+
 function render() {
-
   $('#list-slot').append((template(songData)));
-
 };
 
 let songDataConstructor = function (data) {
@@ -75,6 +78,7 @@ $('.signinform').on('submit', function (e) {
     }
   });
 });
+
 
 
 
