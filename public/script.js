@@ -28,6 +28,7 @@ let NewSongData = function (data) {
   this.NewSongData.album = data.album,
   this.NewSongData.title = data.title,
   this.NewSongData.url = data.url;
+  SongData.push(NewSongData);
 };
 
 
@@ -72,8 +73,8 @@ $('.signinform').on('submit', function (e) {
       console.log('start of hiding');
       homeView.hideAll();
       console.log('Data: ', data);
-      SongData.push(new NewSongData(data.results));
-      // SongData(data.results);
+      // SongData.push(new NewSongData(data.results));
+      NewSongData(data.results);
       console.log(NewSongData);
       render();
     }
