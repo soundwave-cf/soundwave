@@ -2,7 +2,7 @@
 
 
 let homeView = {};
-let songData = {};
+let SongData = [];
 
 let markup = `
     <h4 class="artist">{{artist}}</h4>
@@ -15,16 +15,19 @@ const template = Handlebars.compile(markup);
 
 function render() {
 
-  $('#list-slot').append((template(songData)));
-
+  // $('#list-slot').append((template(songData)));
+  SongData.all.forEach(res => {
+    $('#list-slot').append((template(res)));
+  });
 };
 
-let songDataConstructor = function (data) {
-  console.log(data.artist);
-  songData.artist = data.artist,
-    songData.album = data.album,
-    songData.title = data.title,
-    songData.url = data.url;
+let NewSongData = function (data) {
+
+  console.log(data);
+  this.NewSongData.artist = data.artist,
+  this.NewSongData.album = data.album,
+  this.NewSongData.title = data.title,
+  this.NewSongData.url = data.url;
 };
 
 
@@ -69,8 +72,9 @@ $('.signinform').on('submit', function (e) {
       console.log('start of hiding');
       homeView.hideAll();
       console.log('Data: ', data);
-      songDataConstructor(data);
-      console.log(songData);
+      SongData.push(new NewSongData(data.results));
+      // SongData(data.results);
+      console.log(NewSongData);
       render();
     }
   });
