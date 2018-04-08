@@ -26,7 +26,9 @@ homeView.hideForm = function () {
 
 homeView.hideAll = function () {
   $('h1').hide();
-  $('form').hide();
+  $('.signinform').hide();
+  $('.input').hide();
+  
 };
 
 
@@ -39,6 +41,7 @@ $('.signin').on('click', function () {
   $('h1').hide();
   // $('.input').hide();
   $('.signinform').show();
+  // $('.addsong').show();
 });
 
 $('.signinform').on('submit', function (e) {
@@ -61,6 +64,8 @@ $('.signinform').on('submit', function (e) {
       SongData = data.results;
       console.log('Data: ', data);
       render();
+      $('.addsong').show();
+      
     }
   });
 });
