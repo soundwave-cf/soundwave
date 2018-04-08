@@ -21,14 +21,14 @@ function render() {
   });
 };
 
-let NewSongData = function (data) {
+let NewSongData = function (artist, album, title, url) {
 
-  console.log(data);
-  this.NewSongData.artist = data.artist,
-  this.NewSongData.album = data.album,
-  this.NewSongData.title = data.title,
-  this.NewSongData.url = data.url;
-  SongData.push(NewSongData);
+  // console.log(data.results.artist);
+  this.NewSongData.artist = artist,
+  this.NewSongData.album = album,
+  this.NewSongData.title = title,
+  this.NewSongData.url = url;
+  
 };
 
 
@@ -73,9 +73,9 @@ $('.signinform').on('submit', function (e) {
       console.log('start of hiding');
       homeView.hideAll();
       console.log('Data: ', data);
-      // SongData.push(new NewSongData(data.results));
+      console.log(data.results.title);
+      SongData.push(new NewSongData(data.results.title, data.results.album, data.results.title, data.results.url));
       NewSongData(data.results);
-      console.log(NewSongData);
       render();
     }
   });
