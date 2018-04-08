@@ -6,6 +6,7 @@ const createuser = require('./routes/signup-route');
 const bodyParser = require('body-parser');
 const userAuth = require('./routes/signin-route');
 const seedDb = require('./lib/seedDb.js');
+const addSong = require('./routes/add-song');
 
 let app = express();
 app.use(bodyParser.json());
@@ -16,6 +17,7 @@ let PORT = process.env.PORT || 3000;
 app.use('/', express.static(__dirname + '/public'));
 app.use('/signup', createuser);
 app.use('/signin', userAuth.router);
+app.use('/addSong', addSong);
 
 app.get('/', function (req, res) {
   return res.redirect('/home.html');
