@@ -4,28 +4,23 @@
 let homeView = {};
 let songData = {};
 
-let markup = `
-<<<<<<< HEAD
-<ul class="songList">
-    <li class="artist">{{artist}}</li>
-    <li class="album">{{album}}</li>
-    <li class="song">{{title}}</li>
-    <a href="{{url}}"> <button class="btn btn-success"> Play </button>	</a>
-</ul>
-=======
-    <h4 class="artist">{{artist}}</h4>
-    <h4 class="album">{{album}}</h4>
-    <h4 class="song">{{title}}</h4>
-    <a onclick="this.firstChild.play()"> <audio controls src="{{url}}"></audio></a>
->>>>>>> cd345e458220f2c120c4c6acfd54c0d2ca0f204c
-`;
+let markup = 
+`
+<div id="song-div">
+  <ul class="songListItems">
+    <li id="artist">Artist: {{artist}}</li>
+    <li id="album">Album: {{album}}</li>
+    <li id="song">Titile: {{title}}</li>
+    <a id="audio" onclick="this.firstChild.play()"> <audio controls src="{{url}}"></audio></a>
+  </ul>
+</div>
+`
+;
 
 const template = Handlebars.compile(markup);
 
 function render() {
-
-  $('#list-slot').append((template(songData)));
-
+  $('#song-list').append((template(songData)));
 };
 
 let songDataConstructor = function (data) {
@@ -52,7 +47,7 @@ $('.signup').on('click', function () {
 });
 
 $('.login').on('click', function () {
-  $('h1').hide();
+  $('p').hide();
   // $('.signupForm').hide();
   $('.loginForm').show();
 });
@@ -72,7 +67,7 @@ $('.loginForm').on('submit', function (e) {
     },
     success: function (data) {
       console.log('start of hiding');
-      homeView.hideAll();
+      homeView.hideForm();
       console.log('Data: ', data);
       songDataConstructor(data);
       console.log(songData);
