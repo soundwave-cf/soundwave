@@ -23,20 +23,20 @@ mongoose.connect(process.env.MONGODB_URI);
 // }
 
 router.get('/', (req, res) => {
-    Song.find().then(songs => res.send(songs));
+  Song.find().then(songs => res.send(songs));
 });
 
 router.get('/test-song', (req, res) => {
   Song.create({
-  artist: 'other',
-  album: 'other',
-  title: 'other',
-  url: 'https://s3-us-west-1.amazonaws.com/hr-mytunes/data/One%20In%20a%20Million%2F03%20One%20in%20a%20Million.mp3',
-  userId: "5ac9162d699a92171b72b9c5"
+    artist: 'other',
+    album: 'other',
+    title: 'other',
+    url: 'https://s3-us-west-1.amazonaws.com/hr-mytunes/data/One%20In%20a%20Million%2F03%20One%20in%20a%20Million.mp3',
+    userId: '5ac9162d699a92171b72b9c5'
   })
-  .then((song) => {
-    res.send(song);
-  });
+    .then((song) => {
+      res.send(song);
+    });
 });
 
 router.post('/', (req, res) => {
@@ -67,7 +67,7 @@ router.post('/', (req, res) => {
 
     })
     .catch(err => {
-      res.status(400).send("unable to save to database");
+      res.status(400).send('unable to save to database');
     });
 });
 module.exports = router;

@@ -5,7 +5,7 @@ const fs = require('fs');
 const createuser = require('./routes/signup-route');
 const bodyParser = require('body-parser');
 const userAuth = require('./routes/signin-route');
-const removeSong = require('./routes/removeSong')
+const removeSong = require('./routes/removeSong');
 const seedDb = require('./lib/seedDb.js');
 const addSong = require('./routes/add-song');
 

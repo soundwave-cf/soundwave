@@ -17,24 +17,10 @@ let markup = `
 
 const template = Handlebars.compile(markup);
 
-<<<<<<< HEAD
 function render() {
   SongData.forEach(res => {
     $('#list-slot').append((template(res)));
   });
-=======
-
-function render() {
-  $('#list-slot').append((template(songData)));
-};
-
-let songDataConstructor = function (data) {
-  console.log(data.artist);
-  songData.artist = data.artist,
-    songData.album = data.album,
-    songData.title = data.title,
-    songData.url = data.url;
->>>>>>> 5acc306a4b6fb37e172c5812adb3e2b16f9a9f3c
 };
 
 homeView.hideForm = function () {
@@ -94,6 +80,3 @@ $('.signinform').on('submit', function (e) {
 $(document).ready(function () {
   homeView.hideForm();
 });
-
-
-
