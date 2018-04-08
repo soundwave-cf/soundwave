@@ -49,6 +49,7 @@ router.route('/signin').get((req, res) => {
 
             })
               .then((results) => {
+                console.log('songs', results);
                 let payload = { userId: user._id };
     
                 let token = jwt.sign(payload, process.env.SECRET);
