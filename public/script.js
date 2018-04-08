@@ -36,7 +36,9 @@ homeView.hideForm = function () {
 
 homeView.hideAll = function () {
   $('h1').hide();
-  $('form').hide();
+  $('.signinform').hide();
+  $('.input').hide();
+  
 };
 
 
@@ -49,7 +51,7 @@ $('.signin').on('click', function () {
   $('h1').hide();
   // $('.input').hide();
   $('.signinform').show();
-  $('.addsong').show();
+  // $('.addsong').show();
 });
 
 $('.signinform').on('submit', function (e) {
@@ -68,21 +70,22 @@ $('.signinform').on('submit', function (e) {
     },
     success: function (data) {
       console.log('start of hiding');
-      // homeView.hideAll();
+      homeView.hideAll();
       console.log('Data: ', data);
       songDataConstructor(data);
       console.log(songData);
       render();
       $('.addsong').show();
+      
     }
   });
 });
 
 
 
-// $(document).ready(function () {
-//   homeView.hideForm();
-// });
+$(document).ready(function () {
+  homeView.hideForm();
+});
 
 
 
