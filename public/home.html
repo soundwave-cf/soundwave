@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Document</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Black+Ops+One|Cabin+Sketch|Gaegu|Kirang+Haerang|Monoton|Montserrat+Alternates|Poiret+One|Unica+One|VT323"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 <!-- <a onclick="this.firstChild.play()" ><audio controls src="https://s3-us-west-2.amazonaws.com/soundwavecf/02+The+Distance.m4a"></audio>&#9658;</a>  -->
 
 <body>
 
-    <div id="list-view" >
-       <div id="list-slot"></div>
+    <div id="navbar">
+    <h1>soundwave</h1>
+    <p class="login">Login</p>
+    <p class="signup">Sign Up</p>
    </div>
-  
+    <form class="signupForm" method="post" action="/signup">
+        <label>Sign Up</label>
+        <br>
+        <input type="text" name="username" placeholder="username" required>
+        <input type="text" name="password" placeholder="password" required>
+        <input id="button" type="submit" value="Sign Up">
+    </form>
+    <form class="loginForm">
+        <label>Login</label>
+        <br>
+        <input type="text" name="username" class="username" placeholder="username" required>
+        <input type="text" name="password" class="password" placeholder="password" required>
+        <input id="button" type="submit" value="Login">
+    </form>
 
-    <h1 class="signup">Sign Up</h1>
-    <h1 class="signin">Sign In</h1>
+    
+    <!-- handlebar placeholder -->
+    <div id="song-list"></div>
 
     <form class="input" method="post" action="/signup">
             <label>username</label><br>

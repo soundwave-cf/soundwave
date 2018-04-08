@@ -1,0 +1,81 @@
+body {
+  background-color: #cbe4f0;
+  cursor:pointer;
+  
+  /* Title Font
+  font-family: 'Monoton', cursive; */
+
+  /* Darcy's Top Picks */
+  font-family: 'Poiret One', cursive;
+  /* font-family: 'Amatic SC', cursive; #2 */
+  /* font-family: 'Montserrat Alternates', sans-serif;  #3 */
+
+  /* font-family: 'Kirang Haerang', cursive; */
+  /* font-family: 'Gaegu', cursive; */
+  /* font-family: 'Unica One', cursive; */
+  /* font-family: 'VT323', monospace; */
+  /* font-family: 'Cabin Sketch', cursive; */
+  /* font-family: 'Black Ops One', cursive; */
+}
+
+/* #backgroundImg {
+  background-image: url(images/music.jpg);
+} */
+
+#navbar {
+  display: inline-flex;
+  float: left;
+}
+
+h1 {
+  font-family: 'Monoton', cursive;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.5em;
+  padding-right: 3.5em;
+}
+
+p {
+  padding-left: .8em;
+  padding-top: 1.2em;
+  font-size: .8em;
+}
+
+form {
+  display: -webkit-inline-box;
+}
+
+#song-list {
+  display: -webkit-inline-box;
+}
+
+#song-div {
+  background-color: #ecf5f9;
+}
+
+li {
+  list-style-type: none;
+  display: inline-flex;
+  margin-bottom: .5em;
+  font-size: .7em;
+}
+
+.songListItems {
+  display: inline-block;
+  text-align: center;
+  margin-bottom: .5em;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+#artist {
+  padding-right: 1.3em;
+}
+
+#album {
+  padding-right: 1.3em;
+}
+
+#audio {
+  height: 1em;
+  width: 80%;
+}
