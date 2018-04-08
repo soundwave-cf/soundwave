@@ -9,8 +9,7 @@ let markup = `
     <h4 class="artist">{{artist}}</h4>
     <h4 class="album">{{album}}</h4>
     <h4 class="song">{{title}}</h4>
-    <a onclick="this.firstChild.play()"> <audio controls src="{{url}}"></audio></a>
-    <button id="removebtn"> - </button>
+    <a onclick="this.firstChild.play()"> <audio controls controlsList="nodownload" src="{{url}}"></audio></a><button id="removebtn"></button>
   </section>
 `;
 // let markup = 
