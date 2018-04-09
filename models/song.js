@@ -12,7 +12,7 @@ const song = new mongoose.Schema({
   title: String,
   album: String,
   url: String,
-//   timestamp: true
+  // timestamps: true
 });
 
 const playlist = new mongoose.Schema({

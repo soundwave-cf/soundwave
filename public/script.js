@@ -2,32 +2,37 @@
 
 
 let homeView = {};
-let songData = {};
+let SongData;
 
 let markup = `
+  <section class="eachSong">
     <h4 class="artist">{{artist}}</h4>
     <h4 class="album">{{album}}</h4>
     <h4 class="song">{{title}}</h4>
-    <a onclick="this.firstChild.play()"> <audio controls src="{{url}}"></audio></a>
+    <a onclick="this.firstChild.play()"> <audio controls controlsList="nodownload" src="{{url}}"></audio></a><button id="removebtn"></button>
+  </section>
 `;
+// let markup = 
+// `
+// <div id="song-div">
+//   <ul class="songListItems">
+//     <li id="artist">Artist: {{artist}}</li>
+//     <li id="album">Album: {{album}}</li>
+//     <li id="song">Titile: {{title}}</li>
+//     <a id="audio" onclick="this.firstChild.play()"> <audio controls src="{{url}}"></audio></a>
+//   </ul>
+// </div>
+// `
+// ;
+
 
 const template = Handlebars.compile(markup);
 
 function render() {
-
-  $('#list-slot').append((template(songData)));
-
+  SongData.forEach(res => {
+    $('#song-list').append((template(res)));
+  });
 };
-
-let songDataConstructor = function (data) {
-  console.log(data.artist);
-  songData.artist = data.artist,
-    songData.album = data.album,
-    songData.title = data.title,
-    songData.url = data.url;
-};
-
-
 
 homeView.hideForm = function () {
   console.log('hidddden');
@@ -36,23 +41,29 @@ homeView.hideForm = function () {
 
 homeView.hideAll = function () {
   $('h1').hide();
-  $('form').hide();
+  $('.signinform').hide();
+  $('.input').hide();
+  
 };
-
 
 $('.signup').on('click', function () {
   $('h1').hide();
-  $('.input').show();
+  $('.signupForm').show();
 });
 
-$('.signin').on('click', function () {
-  $('h1').hide();
-  // $('.input').hide();
-  $('.signinform').show();
+// $('.signin').on('click', function () {
+//   $('h1').hide();
+//   // $('.input').hide();
+//   $('.signinform').show();
+//   // $('.addsong').show();
+$('.login').on('click', function () {
+  $('p').hide();
+  // $('.signupForm').hide();
+  $('.loginForm').show();
 });
 
-$('.signinform').on('submit', function (e) {
-
+$('.loginForm').on('submit', function (e) {
+  $('.loginForm').hide();
 
   e.preventDefault();
   let username1 = $('.username').val();
@@ -68,19 +79,19 @@ $('.signinform').on('submit', function (e) {
     success: function (data) {
       console.log('start of hiding');
       homeView.hideAll();
+      SongData = data.results;
+      // homeView.hideForm();
       console.log('Data: ', data);
-      songDataConstructor(data);
-      console.log(songData);
       render();
+      $('.addsong').show();
+      
     }
   });
 });
 
 
 
+
 $(document).ready(function () {
   homeView.hideForm();
 });
-
-
-
