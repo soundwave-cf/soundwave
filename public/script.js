@@ -111,6 +111,9 @@ $('.addsong').on('submit', function (e) {
   $.post({
     url: '/addSong',
     data: newSong,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    },
     success: function (results) {
       console.log('start of posting', results);
       $('#song-list').empty();

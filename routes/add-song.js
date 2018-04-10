@@ -3,6 +3,7 @@ const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
 const mongoose = require('mongoose');
+const bearerMiddleware = require('../lib/bearerMiddleware');
 require('dotenv').config();
 
 const Song = require('../models/song').Song;
@@ -39,7 +40,7 @@ router.get('/test-song', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', bearerMiddleware, (req, res) => {
   console.log('adding song');
   console.log('req.body', req.body);
   User.findOne({
