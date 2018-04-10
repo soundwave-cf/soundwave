@@ -3,6 +3,8 @@ const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
@@ -17,6 +19,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 
   var myData = new User(req.body);
+  // myData.hash_password = bcrypt.hashSync(req.body.password, 10);
   myData.save()
     .then(item => {
       // res.send("User Created");
@@ -27,4 +30,5 @@ router.post('/', (req, res) => {
       res.status(400).send("unable to save to database");
     });
 });
+
 module.exports = router;  

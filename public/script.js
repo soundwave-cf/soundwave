@@ -12,6 +12,7 @@ let markup = `
     <a onclick="this.firstChild.play()"> <audio controls controlsList="nodownload" src="{{url}}"></audio></a><button id="removebtn"></button>
   </section>
 `;
+
 // let markup = 
 // `
 // <div id="song-div">
@@ -88,6 +89,34 @@ $('.loginForm').on('submit', function (e) {
     }
   });
 });
+
+
+$('.addsong').on('submit', function () {
+
+  let newSong = {};
+  newSong.username = $('.user').val();
+  newSong.artist = $('.artist').val();
+  newSong.title = $('.title').val();
+  newSong.album = $('.album').val();
+  newSong.url = $('.url').val();
+  SongData.push(newSong);
+  
+  $.post({
+    url: '/addSong',
+    data: newSong,
+    
+
+  
+    success: function (results) {
+      console.log('start of posting', results);
+      $('#song-list').empty();
+      render();
+    }
+  });
+});
+
+
+
 
 
 

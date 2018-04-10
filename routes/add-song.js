@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const Song = require('../models/song').Song;
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
 
 // var id;
 
@@ -40,6 +40,8 @@ router.get('/test-song', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  console.log('adding song');
+  console.log('req.body', req.body);
   User.findOne({
     username: req.body.username
   })
@@ -62,8 +64,8 @@ router.post('/', (req, res) => {
     })
     .then(item => {
       
-      // res.send("User Created");  
-      return res.redirect('/home.html');
+      res.send("User Created"); 
+      // return res.redirect('/home.html');
 
     })
     .catch(err => {
