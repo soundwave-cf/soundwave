@@ -91,22 +91,26 @@ $('.loginForm').on('submit', function (e) {
 });
 
 
-$('.addsong').on('submit', function () {
+$('.addsong').on('submit', function (e) {
+  e.preventDefault();
 
-  let newSong = {};
-  newSong.username = $('.user').val();
-  newSong.artist = $('.artist').val();
-  newSong.title = $('.title').val();
-  newSong.album = $('.album').val();
-  newSong.url = $('.url').val();
-  SongData.push(newSong);
+  function songBuilder(){
+    let newSong = {};
+    newSong.username = $('.addsong .user').val();
+    newSong.artist = $('.addsong .artist').val();
+    newSong.title = $('.addsong .title').val();
+    newSong.album = $('.addsong .album').val();
+    newSong.url = $('.addsong .url').val();
+    SongData.push(newSong);
+    return newSong;
+    
+  }
+  let newSong = songBuilder();
+  console.log('newSong:', newSong);
   
   $.post({
     url: '/addSong',
     data: newSong,
-    
-
-  
     success: function (results) {
       console.log('start of posting', results);
       $('#song-list').empty();
