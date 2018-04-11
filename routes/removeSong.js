@@ -24,16 +24,5 @@ router.delete('/', (req, res) => {
     }); 
   }
 });
-    // delete all songs
-
-router.delete('/all', (req, res) => {
-    Song.remove()
-      .then((results) => {
-        res.status(204).send(results);
-      })
-      .catch((err) => {
-        res.err(err);
-      });
-});
 
 module.exports = { router };

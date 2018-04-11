@@ -97,7 +97,4 @@ describe('Routes', () => {
         done();
       })
   });
-  test('Should be able to DELETE all songs', () => {
-    
-  })
 });
