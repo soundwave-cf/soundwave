@@ -14,7 +14,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
 router.delete('/', (req, res) => {
   // delete one song
   if (req.query.id) {
-    Song.findOneAndRemove(req.query.id)
+    Song.findOneAndRemove({_id: req.query.id})
       .then((results) => {
         console.log('SONG REMOVED!');
         res.status(204).send(results)
