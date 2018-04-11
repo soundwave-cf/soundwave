@@ -1,4 +1,5 @@
 'use strict';
+//CLEAN
 
 
 let homeView = {};
@@ -36,7 +37,7 @@ function render() {
 };
 
 homeView.hideForm = function () {
-  console.log('hidddden');
+
   $('form').hide();
 };
 
@@ -52,14 +53,8 @@ $('.signup').on('click', function () {
   $('.signupForm').show();
 });
 
-// $('.signin').on('click', function () {
-//   $('h1').hide();
-//   // $('.input').hide();
-//   $('.signinform').show();
-//   // $('.addsong').show();
 $('.login').on('click', function () {
   $('p').hide();
-  // $('.signupForm').hide();
   $('.loginForm').show();
 });
 
@@ -70,7 +65,6 @@ $('.loginForm').on('submit', function (e) {
   let username1 = $('.username').val();
   let password = $('.password').val();
   let payload = btoa(`${username1}:${password}`);
-  console.log(username1, password);
 
   $.get({
     url: '/signin/signin',
@@ -78,10 +72,10 @@ $('.loginForm').on('submit', function (e) {
       Authorization: `Basic ${payload}`
     },
     success: function (data) {
-      console.log('start of hiding');
       homeView.hideAll();
+      localStorage.setItem('token', data.token);
       SongData = data.results;
-      // homeView.hideForm();
+      //keep for now
       console.log('Data: ', data);
       render();
       $('.addsong').show();
@@ -106,8 +100,7 @@ $('.addsong').on('submit', function (e) {
     
   }
   let newSong = songBuilder();
-  console.log('newSong:', newSong);
-  
+
   $.post({
     url: '/addSong',
     data: newSong,
@@ -115,18 +108,12 @@ $('.addsong').on('submit', function (e) {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     },
     success: function (results) {
-      console.log('start of posting', results);
+      console.log(results);
       $('#song-list').empty();
       render();
     }
   });
 });
-
-
-
-
-
-
 
 $(document).ready(function () {
   homeView.hideForm();

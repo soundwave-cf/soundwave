@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- CLEAN -->
 <html lang="en">
 
 <head>
@@ -11,7 +12,6 @@
     <link rel="stylesheet" href="./styles/style.css">
 
 </head>
-<!-- <a onclick="this.firstChild.play()" ><audio controls src="https://s3-us-west-2.amazonaws.com/soundwavecf/02+The+Distance.m4a"></audio>&#9658;</a>  -->
 
 <body>
 
@@ -35,6 +35,15 @@
         <input id="button" type="submit" value="Login">
     </form>
 
+    <form class="addsong">
+          <label>add song</label><br>
+          <input type="text" name="username" class="user"placeholder="username" required>
+          <input type="text" name="artist" class="artist" placeholder="artist" required>
+          <input type="text" name="album" class="album" placeholder="album" required>
+          <input type="text" name="title" class="title" placeholder="title" required>
+          <input type="text" name="url" class="url" placeholder="url" required>
+          <input id="button" type="submit" value="add song">
+      </form>
     
     <!-- handlebar placeholder -->
     <div id="song-list"></div>
@@ -52,15 +61,6 @@
             <input id="button" type="submit" value="Sign In">
         </form>
 
-      <form class="addsong">
-            <label>add song</label><br>
-            <input type="text" name="username" class="user"placeholder="username" required>
-            <input type="text" name="artist" class="artist" placeholder="artist" required>
-            <input type="text" name="album" class="album" placeholder="album" required>
-            <input type="text" name="title" class="title" placeholder="title" required>
-            <input type="text" name="url" class="url" placeholder="url" required>
-            <input id="button" type="submit" value="add song">
-        </form>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 
