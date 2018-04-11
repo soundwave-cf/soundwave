@@ -10,6 +10,7 @@ const removeSong = require('./routes/removeSong');
 // leave for now
 // const seedDb = require('./lib/seedDb.js');
 const addSong = require('./routes/add-song');
+const update = require('./routes/update');
 
 let app = express();
 app.use(bodyParser.json());
@@ -22,6 +23,7 @@ app.use('/signup', createuser);
 app.use('/signin', userAuth.router);
 app.use('/addSong', addSong);
 app.use('/remove', removeSong.router);
+app.use('/update', update);
 
 app.get('/', function (req, res) {
   return res.redirect('/home.html');
