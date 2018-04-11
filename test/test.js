@@ -8,6 +8,18 @@ require('dotenv').config();
 //     password: 'windows'
 //   };
 // };
+
+let newUser = {
+  username: 'bill' + Math.random(),
+  password: 'windows'
+};
+let badUsername = {
+  password: 'windows'
+};
+let badPassword = {
+  username: 'bill' + Math.random()
+};
+
 describe('Server tests', () => {
   test('throws 404 if route is not found', (done) => {
     expect(40).toEqual(40);
@@ -15,16 +27,6 @@ describe('Server tests', () => {
   });
 });
 describe('Testing User Sign Up', () => {
-  let newUser = {
-    username: 'bill' + Math.random(),
-    password: 'windows'
-  };
-  let badUsername = {
-    password: 'windows'
-  };
-  let badPassword = {
-    username: 'bill' + Math.random()
-  };
   test('Should create new user', (done) => {
     superagent.post(SERVER_URL + '/signup')
       .set('Content-Type', 'application/json')
@@ -58,47 +60,44 @@ describe('Testing User Sign Up', () => {
       });
   });
 });
-// describe('Testing user Login', () => {
-//   test('Entered password should equal saved password', (done) => {
-//     superagent.post(SERVER_URL + '/signin')
-//       .set('Content-Type', 'application/json')
-//       .send(JSON.stringify(badPassword))
-//       .catch((res) => {
-//         console.log('catch');
-//         expect(expected).toBe(newUser.password);
-//         done();
-//       });
-//   });
-// });
-// test.skip('sends 401 for wrong password/token', (done) => {
-//   let newUser = getUserParams();
-//   superagent.post(SERVER_URL + '/api/hats')
-//     .set('Content-Type', 'application/json')
-//     .send(newUser)
-//     .end((err, res) => {
-//       expect(res.status).toBe(401);
-//       done();
-//     });
-// });
-describe('Routes', () => {
-  test('Should be able to ADD a song', (done) => {
-    let deleteSong;
-    superagent.get(SERVER_URL + '/')
-      .end((err, res) => {
-        if (err) {
-          console.error(err);
-        }
-        deleteSong = res.body[0];
-        console.log('res.body= ', res.body);
-        let id = res.body[0]._id;
-        superagent.delete(`${SERVER_URL}/?id=${id}`)
-          .end((err, res) => {
-            if (err) {
-              console.error(err);
-            }
-            expect(res.status).toBe(204);
-            done();
-          });
+
+
+//THIS DESCRIBE IS JB's CODE. USING FOR REFERENCE.
+describe.skip('Testing user Login', () => {
+  test('Entered password should equal saved password', (done) => {
+    superagent.post(SERVER_URL + '/signin')
+      .set('Content-Type', 'application/json')
+      .send(JSON.stringify(badPassword))
+      .catch((res) => {
+        console.log('catch');
+        expect(expected).toBe(newUser.password);
+        done();
       });
   });
+});
+test.skip('sends 401 for wrong password/token', (done) => {
+  let newUser = getUserParams();
+  superagent.post(SERVER_URL + '/api/hats')
+    .set('Content-Type', 'application/json')
+    .send(newUser)
+    .end((err, res) => {
+      expect(res.status).toBe(401);
+      done();
+    });
+});
+
+
+describe('Routes', () => {
+  test('Should be able to DELETE a song by id', (done) => {
+    let songId = '5acc4d6dba76be001498e2fe';
+      superagent.delete(SERVER_URL + '/?id=' + songId)
+      .set('Content-Type', 'application/json')
+      .end((err, res) => {
+        expect(res.status).toBe(204);
+        done();
+      })
+  });
+  test('Should be able to DELETE all songs', () => {
+    
+  })
 });
