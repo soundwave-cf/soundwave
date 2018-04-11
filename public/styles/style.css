@@ -40,16 +40,56 @@ p {
   font-size: .8em;
 }
 
-form {
+input.user {
+  width: 8em;
+  font-size: .7em;
+}
+
+input.artist {
+  width: 8em;
+  font-size: .7em;
+}
+
+input.album {
+  width: 8em;
+  font-size: .7em;
+}
+
+input.title {
+  width: 8em;
+  font-size: .7em;
+}
+
+input.url {
+  width: 8em;
+  font-size: .7em;
+}
+
+input#button {
+  width: 7em;
+  font-size: .5em;
+}
+
+.addsongForm {
+  display: inline-block;
+  font-size: .7em;
+}
+
+.loginForm {
+  display: -webkit-inline-box;
+}
+
+.signupForm {
   display: -webkit-inline-box;
 }
 
 #song-list {
-  display: -webkit-inline-box;
+  display: inline-block;
 }
 
 #song-div {
   background-color: #ecf5f9;
+  margin-top: .5em;
 }
 
 li {

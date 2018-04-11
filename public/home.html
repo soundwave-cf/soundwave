@@ -10,16 +10,15 @@
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Black+Ops+One|Cabin+Sketch|Gaegu|Kirang+Haerang|Monoton|Montserrat+Alternates|Poiret+One|Unica+One|VT323"
         rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
-
 </head>
 
 <body>
-
     <div id="navbar">
-    <h1>soundwave</h1>
-    <p class="login">Login</p>
-    <p class="signup">Sign Up</p>
-   </div>
+        <h1>soundwave</h1>
+        <p class="login">Login</p>
+        <p class="signup">Sign Up</p>
+    </div>
+
     <form class="signupForm" method="post" action="/signup">
         <label>Sign Up</label>
         <br>
@@ -35,31 +34,34 @@
         <input id="button" type="submit" value="Login">
     </form>
 
-    <form class="addsong">
-          <label>add song</label><br>
-          <input type="text" name="username" class="user"placeholder="username" required>
-          <input type="text" name="artist" class="artist" placeholder="artist" required>
-          <input type="text" name="album" class="album" placeholder="album" required>
-          <input type="text" name="title" class="title" placeholder="title" required>
-          <input type="text" name="url" class="url" placeholder="url" required>
-          <input id="button" type="submit" value="add song">
-      </form>
-    
+    <form class="addsongForm">
+        <label>Add Song</label>
+        <br>
+        <input type="text" name="username" class="user" placeholder="username" required>
+        <input type="text" name="artist" class="artist" placeholder="artist" required>
+        <input type="text" name="album" class="album" placeholder="album" required>
+        <input type="text" name="title" class="title" placeholder="title" required>
+        <input type="text" name="url" class="url" placeholder="url" required>
+        <input id="button" type="submit" value="add song">
+    </form>
+
     <!-- handlebar placeholder -->
     <div id="song-list"></div>
 
-    <form class="input" method="post" action="/signup">
-            <label>username</label><br>
-            <input type="text" name="username" placeholder="username" required>
-            <input type="text" name="password" placeholder="password" required>
-            <input id="button" type="submit" value="Sign Up">
-        </form>
-        <form class="signinform">
-            <label>username</label><br>
-            <input type="text" name="username" class="username" placeholder="username" required>
-            <input type="text" name="password" class="password" placeholder="password" required>
-            <input id="button" type="submit" value="Sign In">
-        </form>
+    <!-- <form class="input" method="post" action="/signup">
+        <label>username</label>
+        <br>
+        <input type="text" name="username" placeholder="username" required>
+        <input type="text" name="password" placeholder="password" required>
+        <input id="button" type="submit" value="Sign Up">
+    </form>
+    <form class="signinform">
+        <label>username</label>
+        <br>
+        <input type="text" name="username" class="username" placeholder="username" required>
+        <input type="text" name="password" class="password" placeholder="password" required>
+        <input id="button" type="submit" value="Sign In">
+    </form> -->
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
@@ -67,4 +69,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script src="../script.js"></script>
+
 </html>

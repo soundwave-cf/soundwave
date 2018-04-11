@@ -5,27 +5,25 @@
 let homeView = {};
 let SongData;
 
-let markup = `
-  <section class="eachSong">
-    <h4 class="artist">{{artist}}</h4>
-    <h4 class="album">{{album}}</h4>
-    <h4 class="song">{{title}}</h4>
-    <a onclick="this.firstChild.play()"> <audio controls controlsList="nodownload" src="{{url}}"></audio></a><button id="removebtn"></button>
-  </section>
-`;
+// let markup = `
+//   <section class="eachSong">
+//     <h4 class="artist">{{artist}}</h4>
+//     <h4 class="album">{{album}}</h4>
+//     <h4 class="song">{{title}}</h4>
+//     <a onclick="this.firstChild.play()"> <audio controls controlsList="nodownload" src="{{url}}"></audio></a><button id="removebtn"></button>
+//   </section>
+// `;
 
-// let markup = 
-// `
-// <div id="song-div">
-//   <ul class="songListItems">
-//     <li id="artist">Artist: {{artist}}</li>
-//     <li id="album">Album: {{album}}</li>
-//     <li id="song">Titile: {{title}}</li>
-//     <a id="audio" onclick="this.firstChild.play()"> <audio controls src="{{url}}"></audio></a>
-//   </ul>
-// </div>
-// `
-// ;
+let markup = `
+<div id="song-div">
+  <ul class="songListItems">
+    <li id="artist">Artist: {{artist}}</li>
+    <li id="album">Album: {{album}}</li>
+    <li id="song">Titile: {{title}}</li>
+    <a id="audio" onclick="this.firstChild.play()"> <audio controls src="{{url}}"></audio></a>
+  </ul>
+</div>
+`;
 
 
 const template = Handlebars.compile(markup);
@@ -37,16 +35,15 @@ function render() {
 };
 
 homeView.hideForm = function () {
-
-  $('form').hide();
+  $('.signupForm').hide();
+  $('.loginForm').hide();
+  $('.addsongForm').hide();
 };
 
-homeView.hideAll = function () {
-  $('h1').hide();
-  $('.signinform').hide();
-  $('.input').hide();
-  
-};
+// homeView.hideAll = function () {
+//   $('h1').hide();
+//   $('.signinform').hide();
+// };
 
 $('.signup').on('click', function () {
   $('h1').hide();
@@ -72,14 +69,14 @@ $('.loginForm').on('submit', function (e) {
       Authorization: `Basic ${payload}`
     },
     success: function (data) {
-      homeView.hideAll();
+      homeView.hideForm();
       localStorage.setItem('token', data.token);
       SongData = data.results;
       //keep for now
       console.log('Data: ', data);
       render();
-      $('.addsong').show();
-      
+      $('.addsongForm').show();
+      // $('#song-list').show();//temp
     }
   });
 });
