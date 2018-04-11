@@ -20,7 +20,8 @@ let markup = `
     <li id="artist">Artist: {{artist}}</li>
     <li id="album">Album: {{album}}</li>
     <li id="song">Titile: {{title}}</li>
-    <a id="audio" onclick="this.firstChild.play()"> <audio controls src="{{url}}"></audio></a>
+    <a id="audio" onclick="this.firstChild.play()"> <audio controls
+    controlsList="nodownload" src="{{url}}"></audio></a>
   </ul>
 </div>
 `;
@@ -82,16 +83,16 @@ $('.loginForm').on('submit', function (e) {
 });
 
 
-$('.addsong').on('submit', function (e) {
+$('.addsongForm').on('submit', function (e) {
   e.preventDefault();
 
   function songBuilder(){
     let newSong = {};
-    newSong.username = $('.addsong .user').val();
-    newSong.artist = $('.addsong .artist').val();
-    newSong.title = $('.addsong .title').val();
-    newSong.album = $('.addsong .album').val();
-    newSong.url = $('.addsong .url').val();
+    newSong.username = $('.addsongForm .user').val();
+    newSong.artist = $('.addsongForm .artist').val();
+    newSong.title = $('.addsongForm .title').val();
+    newSong.album = $('.addsongForm .album').val();
+    newSong.url = $('.addsongForm .url').val();
     SongData.push(newSong);
     return newSong;
     
