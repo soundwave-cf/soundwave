@@ -20,7 +20,7 @@ app.use('/', express.static(__dirname + '/public'));
 app.use('/signup', createuser);
 app.use('/signin', userAuth.router);
 app.use('/addSong', addSong);
-app.use('/', removeSong.router);
+app.use('/remove', removeSong.router);
 
 app.get('/', function (req, res) {
   return res.redirect('/home.html');
