@@ -20,17 +20,8 @@ router.delete('/', (req, res) => {
         res.status(204).send(results)
           .catch((err) => {
             res.err(err);
-          });
       });
-    // delete all songs
-  } else {
-    Song.remove()
-      .then((results) => {
-        res.status(204).send(results);
-      })
-      .catch((err) => {
-        res.err(err);
-      });
+    }); 
   }
 });
 
