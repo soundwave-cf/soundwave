@@ -20,10 +20,13 @@ router.delete('/', (req, res) => {
         res.status(204).send(results)
           .catch((err) => {
             res.err(err);
-          });
       });
+    }); 
+  }
+});
     // delete all songs
-  } else {
+
+router.delete('/all', (req, res) => {
     Song.remove()
       .then((results) => {
         res.status(204).send(results);
@@ -31,7 +34,6 @@ router.delete('/', (req, res) => {
       .catch((err) => {
         res.err(err);
       });
-  }
 });
 
 module.exports = { router };
