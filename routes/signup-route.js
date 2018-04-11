@@ -7,6 +7,7 @@ require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
 
+// REMOVE before launch???
 router.get('/', (req, res) => {
   User.find()
     .then((results) => {
@@ -15,8 +16,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-
-  var myData = new User(req.body);
+  let myData = new User(req.body);
   myData.save()
     .then(item => {
       // res.send("User Created");
@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
       
     })
     .catch(err => {
-      res.status(400).send("unable to save to database");
+      res.status(400).send('unable to save to database');
     });
 });
 module.exports = router;  
