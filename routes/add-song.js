@@ -3,13 +3,13 @@
 const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const bearerMiddleware = require('../lib/bearerMiddleware');
 require('dotenv').config();
 
 const Song = require('../models/song').Song;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
 
 
 

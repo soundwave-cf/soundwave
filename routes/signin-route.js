@@ -9,8 +9,8 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 
-const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
+// const mongoose = require('mongoose');
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
 
 router.route('/signin').get((req, res) => {
   let authHeader = req.get('Authorization');

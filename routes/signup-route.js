@@ -3,10 +3,10 @@
 const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 require('dotenv').config();
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
 
 router.post('/', (req, res) => {
 
