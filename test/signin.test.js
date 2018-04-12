@@ -42,7 +42,7 @@ describe('All tests', () => {
     });
     it('Should return 400 if they dont provide a password and username', (done) => {
       return superagent.get(SERVER_URL + '/signin/signin')
-        .auth('', '')
+        .auth()
         .catch((res) => {
           expect(res.status).toBe(400);
           done();

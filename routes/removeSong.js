@@ -13,9 +13,6 @@ router.delete('/',bearerMiddleware, (req, res) => {
       .then((results) => {
         console.log('SONG REMOVED!');
         res.send(204, results);
-        // .catch((err) => {
-        //   res.err(err);
-        // });
       }); 
   }
 });
