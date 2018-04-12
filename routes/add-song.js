@@ -6,8 +6,6 @@ const router = express.Router();
 const bearerMiddleware = require('../lib/bearerMiddleware');
 const Song = require('../models/song').Song;
 
-
-
 router.post('/', bearerMiddleware, (req, res) => {
   console.log('adding song');
   console.log('req.body', req.body);
@@ -20,11 +18,12 @@ router.post('/', bearerMiddleware, (req, res) => {
       Song.create(myData);
     })
     .then(item => {
-      res.send('Song Created'); 
+      res.send(200, 'Song Created'); 
     })
     .catch(err => {
       res.status(400).send('unable to save to database');
     });
 });
+
 module.exports = router;
 
