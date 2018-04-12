@@ -16,10 +16,22 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
 
 router.put('/', bearerMiddleware, (req, res) => {
   Song.findOne({
-    title: req.body.title
+    _id: req.body._id
   })
     .then((results) => {
-      results.title = req.body.newTitle;
+      if (req.body.newTitle) {
+        results.title = req.body.newTitle;
+      }
+      if (req.body.newArtist) {
+        results.artist = req.body.newArtist;
+      }
+      if (req.body.newAlbum) {
+        results.album = req.body.newAlbum;
+      }
+      if (req.body.newUrl) {
+        results.url = req.body.newUrl;
+      }
+
       results.save();
     })
     .then((results) => {
