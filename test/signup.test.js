@@ -1,7 +1,8 @@
 'use strict';
 
 const superagent =  require('superagent');
-const SERVER_URL = 'http://localhost:3000';
+const PORT = process.env.PORT || 3000;
+const SERVER_URL = 'http://localhost:' + PORT;
 const server = require('../server.js');
 require('dotenv').config();
 
