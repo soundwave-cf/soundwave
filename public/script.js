@@ -1,6 +1,4 @@
 'use strict';
-//CLEAN
-
 
 let homeView = {};
 let SongData;
@@ -25,7 +23,6 @@ let markup = `
   </ul>
 </div>
 `;
-
 
 const template = Handlebars.compile(markup);
 
@@ -82,7 +79,6 @@ $('.loginForm').on('submit', function (e) {
   });
 });
 
-
 $('.addsongForm').on('submit', function (e) {
   e.preventDefault();
 
@@ -95,8 +91,8 @@ $('.addsongForm').on('submit', function (e) {
     newSong.url = $('.addsongForm .url').val();
     SongData.push(newSong);
     return newSong;
-    
   }
+
   let newSong = songBuilder();
 
   $.post({

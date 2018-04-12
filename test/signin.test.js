@@ -5,18 +5,6 @@ const SERVER_URL = 'http://localhost:3000';
 const server = require('../server.js');
 require('dotenv').config();
 
-// let newUser = {
-//   username: 'bill' + Math.random(),
-//   password: 'password'
-// };
-
-// let badUsername = {
-//   password: 'windows'
-// };
-// let badPassword = {
-//   username: 'bill' + Math.random()
-// };
-
 describe('All tests', () => {
   beforeAll(server.start);
   afterAll(server.stop);
@@ -28,8 +16,6 @@ describe('All tests', () => {
   });
 
   describe('Sign In Route', () => {
-    // let token;
-
     it('Should be able to sign returning user in', (done) => {
       return superagent.get(SERVER_URL + '/signin/signin')
         .auth('jest', 'jest')
@@ -55,5 +41,4 @@ describe('All tests', () => {
         });
     });
   });
-
 });

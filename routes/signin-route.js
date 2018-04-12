@@ -28,7 +28,6 @@ router.route('/signin').get((req, res) => {
         if (err) {
           return res.send('Authentication failed: ' + err.message);
         }
-
         if (!isValid) {
           res.status(401).send('Not a valid password: ' + err);
           return;
@@ -37,25 +36,18 @@ router.route('/signin').get((req, res) => {
           username: username
         })
           .then((results) => {
-
             Song.find( {
               userId: results._id
-
             })
               .then((results) => {
                 let payload = { userId: user._id };
                 let token = jwt.sign(payload, process.env.SECRET);
-
                 res.status(200).send({ auth: true, token: token , results});
-
               })
               .catch(err => res.send(err.message));
           });
       });
     });
-
-
 });
-
 
 module.exports = { router };
