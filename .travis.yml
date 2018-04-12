@@ -5,7 +5,6 @@ before_script: npm i
 services:
 - mongodb
 env:
-  PORT: 3000
   MONGODB_URI: mongodb://heroku_r97vmzfk:p3f38c4onhb2rvuc7ardqbochj@ds235239.mlab.com:35239/heroku_r97vmzfk
 script:
 - npm test
