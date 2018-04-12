@@ -29,47 +29,30 @@ app.get('/', function (req, res) {
   return res.redirect('/home.html');
 });
 
-app.get('/music', function (req, res) {
-
-  let fileId = req.query.id;
-  let file = __dirname + '/music/' + fileId;
-  fs.exists(file, function (exists) {
-    if (exists) {
-      let rstream = fs.createReadStream(file);
-      rstream.pipe(res);
-    }
-    else {
-      res.send('Its a 404');
-      res.end();
-    }
-
-  });
-});
-
 const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI;
 // Server Controls
-const server = module.exports = {}
+const server = module.exports = {};
 server.isOn = false;
 server.start = () => {
   return new Promise((resolve, reject) => {
-    if(server.isOn) return reject(new Error('Server Error. Server already running.'))
+    if(server.isOn) return reject(new Error('Server Error. Server already running.'));
     server.http = app.listen(PORT, () => {
-      console.log(`Listening on ${PORT}`)
-      server.isOn = true
-      mongoose.connect(MONGODB_URI)
-      return resolve(server)
-    })
-  })
-}
+      console.log(`Listening on ${PORT}`);
+      server.isOn = true;
+      mongoose.connect(MONGODB_URI);
+      return resolve(server);
+    });
+  });
+};
 server.stop = () => {
   return new Promise((resolve, reject) => {
-    if(!server.isOn) return reject(new Error('Server Error. Server already stopped.'))
+    if(!server.isOn) return reject(new Error('Server Error. Server already stopped.'));
     server.http.close(() => {
-      server.isOn = false
-      mongoose.disconnect()
-      return resolve()
-    })
-  })
-}
+      server.isOn = false;
+      mongoose.disconnect();
+      return resolve();
+    });
+  });
+};
 

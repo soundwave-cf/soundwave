@@ -20,7 +20,7 @@ describe('All tests', () => {
     let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YWNlYzJlY2ZhMTFmNjU2MGY5OTVlMGQiLCJpYXQiOjE1MjM1MTQzNTN9.nBhPBqhh54kYzB0JGfPcVkm1SSRILXx-o8bA5ps9bBI';
 
     it('User should be able to remove a song with correct token', (done) => {
-      let songId = '5acf087f9105da60f1c5f7d8';
+      let songId = '5acf0fed3be6fc658d934fd1';
       return superagent.delete(SERVER_URL + '/remove?id=' + songId)
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json')

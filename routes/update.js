@@ -31,7 +31,6 @@ router.put('/', bearerMiddleware, (req, res) => {
       if (req.body.newUrl) {
         results.url = req.body.newUrl;
       }
-
       results.save();
     })
     .then((results) => {
@@ -40,7 +39,6 @@ router.put('/', bearerMiddleware, (req, res) => {
     .catch((err) => {
       res.status(400).send('unable to update');
     });
-
 });
 
 module.exports = router;

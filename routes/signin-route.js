@@ -11,7 +11,7 @@ router.route('/signin').get((req, res) => {
   let authHeader = req.get('Authorization');
 
   if (!authHeader) {
-    res.send('Must provide a username/password');
+    res.send(400, 'Must provide a username/password');
   }
 
   let payload = authHeader.split('Basic ')[1];
