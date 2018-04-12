@@ -2,7 +2,7 @@
 // CLEAN
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/create-user');
+
 
 const User = new mongoose.Schema({
   username: {
@@ -16,8 +16,6 @@ const User = new mongoose.Schema({
   },
 });
 
-
-
 User.pre('save', function(next) {
   if(this.isNew) {
     console.log('New user', this);
@@ -27,10 +25,8 @@ User.pre('save', function(next) {
         next();
       }).catch(err => console.log('error', err));
   }else {
-    console.log('old user', this);
     next();
   }
 });
-
 
 module.exports = mongoose.model('User', User);

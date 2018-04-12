@@ -18,7 +18,7 @@ describe('All tests', () => {
   describe('Sign In Route', () => {
     it('Should be able to sign returning user in', (done) => {
       return superagent.get(SERVER_URL + '/signin/signin')
-        .auth('jest', 'jest')
+        .auth('signin', 'signin')
         .then((res) => {
           expect(res.status).toBe(200);
           done();
@@ -26,7 +26,7 @@ describe('All tests', () => {
     });
     it('Should return 400 for incorrect username', (done) => {
       return superagent.get(SERVER_URL + '/signin/signin')
-        .auth('notJest', 'jest')
+        .auth('notSignin', 'signin')
         .catch((res) => {
           expect(res.status).toBe(400);
           done();
@@ -34,9 +34,17 @@ describe('All tests', () => {
     });
     it('Should return 401 for incorrect password', (done) => {
       return superagent.get(SERVER_URL + '/signin/signin')
-        .auth('jest', 'notJest')
+        .auth('signin', 'notSignin')
         .catch((res) => {
           expect(res.status).toBe(401);
+          done();
+        });
+    });
+    it('Should return 400 if they dont provide a password and username', (done) => {
+      return superagent.get(SERVER_URL + '/signin/signin')
+        .auth()
+        .catch((res) => {
+          expect(res.status).toBe(400);
           done();
         });
     });
