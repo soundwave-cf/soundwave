@@ -90,6 +90,9 @@ input#button {
 #song-div {
   background-color: #ecf5f9;
   margin-top: .5em;
+  height: 4em;
+  width: 65%;
+  margin-right: auto;
 }
 
 li {
@@ -116,6 +119,6 @@ li {
 }
 
 #audio {
-  height: 1em;
-  width: 80%;
+  float: left;
+  margin-left: 25%;
 }
