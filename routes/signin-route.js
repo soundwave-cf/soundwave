@@ -22,11 +22,11 @@ router.route('/signin').get((req, res) => {
     .then(user => {
 
       if (user === null) {
-        res.send('user not found');
+        return res.send(400, 'user not found');
       }
       bcrypt.compare(password, user.password, (err, isValid) => {
         if (err) {
-          res.send('Authentication failed: ' + err.message);
+          return res.send('Authentication failed: ' + err.message);
         }
 
         if (!isValid) {
@@ -43,12 +43,10 @@ router.route('/signin').get((req, res) => {
 
             })
               .then((results) => {
-
                 let payload = { userId: user._id };
-    
                 let token = jwt.sign(payload, process.env.SECRET);
 
-                res.send({ auth: true, token: token , results});
+                res.status(200).send({ auth: true, token: token , results});
 
               })
               .catch(err => res.send(err.message));
