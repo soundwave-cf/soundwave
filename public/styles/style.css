@@ -1,26 +1,8 @@
 body {
-  background-color: #cbe4f0;
+  /* background-color: #cbe4f0; */
   cursor:pointer;
-  
-  /* Title Font
-  font-family: 'Monoton', cursive; */
-
-  /* Darcy's Top Picks */
   font-family: 'Poiret One', cursive;
-  /* font-family: 'Amatic SC', cursive; #2 */
-  /* font-family: 'Montserrat Alternates', sans-serif;  #3 */
-
-  /* font-family: 'Kirang Haerang', cursive; */
-  /* font-family: 'Gaegu', cursive; */
-  /* font-family: 'Unica One', cursive; */
-  /* font-family: 'VT323', monospace; */
-  /* font-family: 'Cabin Sketch', cursive; */
-  /* font-family: 'Black Ops One', cursive; */
 }
-
-/* #backgroundImg {
-  background-image: url(images/music.jpg);
-} */
 
 #navbar {
   display: inline-flex;
@@ -90,6 +72,9 @@ input#button {
 #song-div {
   background-color: #ecf5f9;
   margin-top: .5em;
+  height: 4em;
+  width: 65%;
+  margin-right: auto;
 }
 
 li {
@@ -116,6 +101,6 @@ li {
 }
 
 #audio {
-  height: 1em;
-  width: 80%;
+  float: left;
+  margin-left: 20%;
 }

@@ -1,5 +1,5 @@
 'use strict';
-// CLEAN
+
 const mongoose = require('mongoose');
 
 const song = new mongoose.Schema({
@@ -13,7 +13,6 @@ const song = new mongoose.Schema({
   url: String,
 
 });
-
 
 let Song = mongoose.model('Song' , song);
 module.exports = {Song};
