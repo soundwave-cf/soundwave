@@ -9,7 +9,7 @@ router.delete('/',bearerMiddleware, (req, res) => {
   if (req.query.id) {
     Song.findOneAndRemove({_id: req.query.id})
       .then((results) => {
-        res.send(204, results);
+        res.send(204, 'song deleted');
       }); 
   }
 });
