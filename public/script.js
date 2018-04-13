@@ -30,7 +30,7 @@ homeView.hideForm = function () {
 };
 
 $('.signup').on('click', function () {
-  $('h1').hide();
+  $('p').hide();
   $('.signupForm').show();
 });
 
