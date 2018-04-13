@@ -9,7 +9,6 @@ let newUser = {
   username: 'bill' + Math.random(),
   password: 'password'
 };
-
 let badUsername = {
   password: 'windows'
 };

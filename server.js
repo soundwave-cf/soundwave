@@ -2,12 +2,11 @@
 
 require('dotenv').config();
 const express = require('express');
-const fs = require('fs');
 const createuser = require('./routes/signup-route');
 const bodyParser = require('body-parser');
 const userAuth = require('./routes/signin-route');
 const removeSong = require('./routes/removeSong');
-// leave for now
+// If starting new database, uncomment to seed new song
 // const seedDb = require('./lib/seedDb.js');
 const addSong = require('./routes/add-song');
 const update = require('./routes/update');
@@ -31,7 +30,7 @@ app.get('/', function (req, res) {
 
 const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI;
-// Server Controls
+
 const server = module.exports = {};
 server.isOn = false;
 server.start = () => {

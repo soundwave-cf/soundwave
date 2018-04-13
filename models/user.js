@@ -1,8 +1,7 @@
 'use strict';
-// CLEAN
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
 
 const User = new mongoose.Schema({
   username: {
@@ -18,7 +17,6 @@ const User = new mongoose.Schema({
 
 User.pre('save', function(next) {
   if(this.isNew) {
-    console.log('New user', this);
     bcrypt.hash(this.password, 10)
       .then(hash => {
         this.password = hash;

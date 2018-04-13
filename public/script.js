@@ -3,15 +3,6 @@
 let homeView = {};
 let SongData;
 
-// let markup = `
-//   <section class="eachSong">
-//     <h4 class="artist">{{artist}}</h4>
-//     <h4 class="album">{{album}}</h4>
-//     <h4 class="song">{{title}}</h4>
-//     <a onclick="this.firstChild.play()"> <audio controls controlsList="nodownload" src="{{url}}"></audio></a><button id="removebtn"></button>
-//   </section>
-// `;
-
 let markup = `
 <div id="song-div">
   <ul class="songListItems">
@@ -37,11 +28,6 @@ homeView.hideForm = function () {
   $('.loginForm').hide();
   $('.addsongForm').hide();
 };
-
-// homeView.hideAll = function () {
-//   $('h1').hide();
-//   $('.signinform').hide();
-// };
 
 $('.signup').on('click', function () {
   $('h1').hide();

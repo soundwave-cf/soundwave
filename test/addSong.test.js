@@ -38,27 +38,4 @@ describe('All tests', () => {
         });
     });
   });
-  // describe.skip('Add a Song', () => {
-  //   let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YWNlYzJlY2ZhMTFmNjU2MGY5OTVlMGQiLCJpYXQiOjE1MjM1MTQzNTN9.nBhPBqhh54kYzB0JGfPcVkm1SSRILXx-o8bA5ps9bBI';
-
-  //   it('User should send a 400 if unable to post to db', (done) => {
-  //     return superagent.post(SERVER_URL + '/addSong')
-  //       .set('Authorization', `Bearer ${token}`)
-  //       .send({
-  //         artist: 'The Pixies',
-  //         title: 'Monkey Gone to Heaven',
-  //         album: 'unknown',
-  //         url: 'https://s3-us-west-2.amazonaws.com/soundwavecf/Pixies+-+Monkey+Gone+To+Heaven.mp3'
-  //       })
-  //       .then((res) => {
-  //         expect(res.status).toBe(400);
-  //         done();
-  //       })
-  //       .catch(err => {
-  //         console.error(err);
-  //       });
-  //   });
-  // });
-
-
 });

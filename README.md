@@ -20,28 +20,42 @@
 ***
 
 ## Overview
-A back-end CRUD database application that allows the users to create individual playlists and save to a database.
+A back-end CRUD database application that allows the user to save a collection of songs to a database.
 ***
 
 ## Getting Started
 Begin by ensuring the following are in place:
-* Download application repo and execute the following commands in terminal:
-  - npm init<br>
+* Download application repo and execute the following command in terminal:
   - npm install<br>
-* Create .env file with SECRET='secret code here' and a &nbsp; `MONGODB_URI='database pointer here'` &nbsp; that points to a local database or a deployed database(this application uses Mlabs on Heroku)<br>
+* Create .env file with which includes the following:
+  - SECRET='secret code here'<br>
+  -  `MONGODB_URI='database pointer here'`<br>
+  that points to a local database or a deployed database (this application uses Mlabs on Heroku)<br>
 
 Basic application functionality:<br>
-### CREATE
-Create User<br>
+### <u>CREATE</u>
+<b>Create User</b><br>
+Type =  POST <br>
+Route: ```/signup```<br>
 Requires:
+
 * Unique username
 * Password<br>
-
-Create Song<br>
+```
+Ex:
+{
+  username: 'bill',
+  password: 'password'
+}
+```
+<b>Create Song</b><br>
+Type =  POST <br>
+Route: ```/addSong```<br>
 Requires:
 * Token
 * Song Object: 
 ```
+Ex:
 {
   Title: '',
   Artist: '', 
@@ -49,28 +63,33 @@ Requires:
   url: ''
 }
 ```
-### READ
+### <u>READ</u>
+Type =  GET <br>
+Route: ```/signin/signin```<br>
 Requires:
 * Username and password
-* Returns an users song list
+* Returns a users song list
 
-### UPDATE
+### <u>UPDATE</u>
+Type =  PUT <br>
+Route: ```/update```<br>
 Requires:
-* Toke
+* Token
 * SongID: required
-* Song Object (only 1 key:value pair is required to update)<br>
+* Song Object (Note: only 1 key:value pair is required to update)<br>
 Ex:
 ```
 { 
-  _ID: '',
+  _id: '',
   newTitle: '',
   newAlbum: '', 
   newArtist: '',
   newUrl: ''
 }
 ```
-
-### DELETE
+### <u>DELETE</u>
+Type =  DELETE <br>
+Route: ```/remove```<br>
 Requires:
 * Token
 * SongID
@@ -80,14 +99,14 @@ Requires:
 
 ### User
 
- *  As a user, I want to Sign Up / Login in to an account securely
- *  As a user, I want to be able to able to Add, Delete, or Update a song on my Playlist
-*  As a user, I want my Playlist and songs to persist between each login
+ *  As a user, I want to Sign Up / Login in to my account securely
+ *  As a user, I want to be able to able to Add, Delete, or Update a song on my collection
+*  As a user, I want my collection of songs to persist between each login
 
 ### Developer
  * As a developer, I want to create an application that is easy to read and uses REST'ful architecture
  * As a developer, I want to create an application that allows the user to Sign Up / Login securely
- * As a developer, I want to create an application that allows the user to perform meaningful CRUD operations to manage their songs / Playlist
+ * As a developer, I want to create an application that allows the user to perform meaningful CRUD operations to manage their songs
  * As a developer, I want to create an application that allows the user to save content to a database
 ***
 ## Deployed Application
