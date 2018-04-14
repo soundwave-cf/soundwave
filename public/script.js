@@ -8,7 +8,7 @@ let markup = `
   <ul class="songListItems">
     <li id="artist">Artist: {{artist}}</li>
     <li id="album">Album: {{album}}</li>
-    <li id="song">Titile: {{title}}</li>
+    <li id="song">Title: {{title}}</li>
     <a id="audio" onclick="this.firstChild.play()"> <audio controls
     controlsList="nodownload" src="{{url}}"></audio></a>
   </ul>
